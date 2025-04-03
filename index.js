@@ -9,17 +9,8 @@ const app = express();
 const server = createServer(app);
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
-
 app.use(express.static(join(__dirname, 'dist')));
-
-const io = new Server(server, { 
-    cors: {
-      origin: 'http://localhost:5173', // allow frontend vite to request backend service
-      methods: ['GET', 'POST'],
-      credentials: true,
-    },
-  });
-app.use(cors({ origin: 'http://localhost:5173' }));
+app.use(cors({ origin: 'http://localhost:5173' })); // express CORS
 
 app.get('/', (req, res) => {
     res.sendFile(join(__dirname, 'dist', 'index.html'));
@@ -27,6 +18,14 @@ app.get('/', (req, res) => {
 
   let onlineUsers = 0;
   let messageCount = 0;
+
+  const io = new Server(server, { // Socket IO CORS
+    cors: {
+      origin: 'http://localhost:5173', // allow frontend vite to request backend service
+      methods: ['GET', 'POST'],
+      credentials: true,
+    },
+  });
 
   // eslint-disable-next-line no-unused-vars
   io.on('connection', (socket) => {

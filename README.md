@@ -4,6 +4,10 @@
 
 This project is a real-time chat application built using React and Vite on the frontend, and Node.js with Express on the backend. The application utilizes Socket.IO to enable real-time message exchange between clients and displays the current number of online users and total messages sent.
 
+## Youtube Video Presentation
+
+[Watch the demo video](https://www.youtube.com/watch?v=05UFytvNJB8)
+
 ### Features
 
 - Real-time chat functionality
@@ -86,7 +90,7 @@ http://localhost:5173
 - The message will appear in the chat window with a timestamp and username.
 - Online user count and total message count update dynamically.
 
-## Custom Feature
+## Custom Feature (Creative)
 
 - Message Counter: Displays the total number of messages sent during the session.
 - Online User Tracker: Shows the number of users currently connected.
